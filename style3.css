@@ -1,0 +1,78 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(6, 74, 95);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.half {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    opacity: 0; /* Inicialmente oculto */
+    transform: translateY(20px); /* Posición inicial de la animación */
+    transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+}
+
+.half.show {
+    opacity: 1; /* Hace visible el contenido */
+    transform: translateY(0); /* Restaura la posición original */
+}
+
+.image-side {
+    background-image: url('imagen4.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.text-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el texto */
+}
+
+#animated-text {
+    font-size: 24px;
+    text-align: justify;
+    padding: 20px;
+    color: rgb(6, 74, 95);
+}
+
+.back-button {
+    position: fixed; /* Fija el botón en la esquina de la pantalla */
+    bottom: 20px;    /* Distancia desde el borde inferior */
+    right: 20px;     /* Distancia desde el borde derecho */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #007bff; /* Color de fondo */
+    color: white;   /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Color de fondo en hover */
+}
+
+#Kendrick
+{
+    text-decoration: none;
+}
+
+#Kendrick:hover
+{
+    text-decoration: underline;
+}

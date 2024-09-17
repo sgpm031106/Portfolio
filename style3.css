@@ -67,7 +67,7 @@ body, html {
 
 .back-button:hover {
     background-color: #0056b3; /* Color de fondo en hover */
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 #Kendrick

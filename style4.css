@@ -53,7 +53,7 @@ body, html {
 .back-button {
     position: fixed; /* Fija el botón en la esquina de la pantalla */
     bottom: 20px;    /* Distancia desde el borde inferior */
-    right: 20px;     /* Distancia desde el borde derecho */
+    right: 30px;     /* Distancia desde el borde derecho */
     padding: 10px 20px; /* Espaciado interno */
     background-color: #007bff; /* Color de fondo */
     color: white;   /* Color del texto */
@@ -61,10 +61,13 @@ body, html {
     border-radius: 5px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
     font-size: 16px; /* Tamaño del texto */
+    transform: scaleZ();
+    transition: ease-in-out 0.5s;
 }
 
 .back-button:hover {
     background-color: #0056b3; /* Color de fondo en hover */
+    transform: scale(1.5);
 }
 
 #github-link

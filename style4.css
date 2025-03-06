@@ -1,3 +1,4 @@
+/* Estilos generales */
 body, html {
     margin: 0;
     padding: 0;
@@ -7,7 +8,7 @@ body, html {
     justify-content: center;
     align-items: center;
     font-family: 'Arial', sans-serif;
-    background-color: rgb(6, 74, 95);
+    background-color: rgb(0, 0, 0);
 }
 
 .container {
@@ -23,6 +24,8 @@ body, html {
     opacity: 0; /* Inicialmente oculto */
     transform: translateY(20px); /* Posición inicial de la animación */
     transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina rellenos */
 }
 
 .half.show {
@@ -34,20 +37,31 @@ body, html {
     background-image: url('code.jpg');
     background-size: cover;
     background-position: center;
+    height: 100%; /* Asegura que ocupe el 100% del alto */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina rellenos */
 }
 
 .text-side {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el texto */
+    flex-direction: column; /* Alinear elementos en columna */
+    justify-content: flex-start; /* Alinear contenido en la parte superior */
+    align-items: center; /* Centrar horizontalmente */
+    background-color: rgba(17, 4, 47, 0.8);  /* Fondo semi-transparente para el texto */
+    padding: 20px; /* Añadir padding para separar del borde */
+    height: 100%; /* Asegura que ocupe el 100% del alto */
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido es demasiado grande */
 }
 
 #animated-text {
     font-size: 24px;
     text-align: justify;
     padding: 20px;
-    color: rgb(6, 74, 95);
+    color: rgb(162, 184, 191);
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), /* Sombra exterior azul neón */
+                 0 0 10px rgba(0, 191, 255, 0.6),
+                 0 0 20px rgba(0, 191, 255, 0.4),
+                 0 0 40px rgba(0, 191, 255, 0.2);
 }
 
 .back-button {
@@ -58,8 +72,10 @@ body, html {
     background-color: #007bff; /* Color de fondo */
     color: white;   /* Color del texto */
     text-decoration: none; /* Elimina el subrayado del enlace */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.8), /* Sombra exterior azul neón */
+    0 0 20px rgba(0, 191, 255, 0.6), /* Segundo nivel de sombra */
+    0 0 30px rgba(0, 191, 255, 0.4); /* Tercer nivel de sombra */
+    transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
     font-size: 16px; /* Tamaño del texto */
     transform: scaleZ();
     transition: ease-in-out 0.5s;
@@ -70,17 +86,92 @@ body, html {
     transform: scale(1.5);
 }
 
-#github-link
-{
+#github-link {
     display: block;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bold;
-    color: #007bff;
+    color: #8da9c6;
     text-decoration: none;
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), /* Sombra exterior azul neón */
+                 0 0 10px rgba(0, 191, 255, 0.6),
+                 0 0 20px rgba(0, 191, 255, 0.4),
+                 0 0 40px rgba(0, 191, 255, 0.2);
 }
 
-#github-link:hover
-{
+#github-link:hover {
     text-decoration: underline;
+}
+
+/* Estilos para la lista de habilidades */
+.skills-list {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin: 10px 0; /* Margen superior e inferior reducido */
+    width: 80%; /* Ancho de la lista */
+    max-width: 300px; /* Ancho máximo más pequeño */
+    max-height: 200px; /* Altura máxima para la lista */
+    overflow-y: auto; /* Permite el desplazamiento vertical si la lista es muy larga */
+}
+
+.skills-list li {
+    font-size: 16px; /* Tamaño de fuente más pequeño */
+    margin: 8px 0; /* Espaciado reducido entre elementos */
+    display: flex;
+    align-items: center;
+    color: rgb(162, 184, 191);
+}
+
+.skills-list li i {
+    font-size: 20px; /* Tamaño de iconos más pequeño */
+    margin-right: 8px; /* Espaciado reducido entre iconos y texto */
+    color: #89949f;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia a una columna en pantallas pequeñas */
+    }
+
+    .half {
+        width: 100%; /* Ocupa el 100% del ancho en pantallas pequeñas */
+        height: 50%; /* Cada mitad ocupa la mitad de la altura */
+    }
+
+    .text-side {
+        height: auto; /* Altura automática para que el contenido no desborde */
+        overflow-y: visible; /* Desactiva el desplazamiento vertical */
+    }
+
+    #animated-text {
+        font-size: 18px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 10px; /* Padding reducido */
+    }
+
+    .skills-list {
+        max-height: none; /* Elimina la altura máxima en pantallas pequeñas */
+    }
+}
+
+@keyframes revealText {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+}
+
+p{
+    animation: revealText 2s steps(100) forwards, breathe 3s ease-in-out 2s infinite;
 }

@@ -23,6 +23,7 @@ body, html {
     opacity: 0; /* Inicialmente oculto */
     transform: translateY(20px); /* Posición inicial de la animación */
     transition: opacity 2s ease, transform 2s ease; /* Transición suave */
+    
 }
 
 .half.show {
@@ -40,14 +41,18 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el texto */
+    background-color: rgba(17, 4, 47, 0.8); /* Fondo semi-transparente para el texto */
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.8), /* Sombra exterior azul neón */
+                 0 0 10px rgba(0, 191, 255, 0.6),
+                 0 0 20px rgba(0, 191, 255, 0.4),
+                 0 0 40px rgba(0, 191, 255, 0.2);
 }
 
 #animated-text {
     font-size: 24px;
     text-align: justify;
     padding: 20px;
-    color: rgb(6, 74, 95);
+    color: rgb(162, 184, 191);
 }
 
 .back-button {
@@ -58,8 +63,12 @@ body, html {
     background-color: #007bff; /* Color de fondo */
     color: white;   /* Color del texto */
     text-decoration: none; /* Elimina el subrayado del enlace */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    /*border-radius: 5px; /* Bordes redondeados */
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.8), /* Sombra exterior azul neón */
+                0 0 20px rgba(0, 191, 255, 0.6), /* Segundo nivel de sombra */
+                0 0 30px rgba(0, 191, 255, 0.4); /* Tercer nivel de sombra */
+    transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
     font-size: 16px; /* Tamaño del texto */
     transform: scaleZ();
     transition: ease-in-out 0.5s;
@@ -68,4 +77,26 @@ body, html {
 .back-button:hover {
     background-color: #0056b3; /* Color de fondo en hover */
     transform: scale(1.5);
+}
+
+@keyframes revealText {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+p{
+    animation: revealText 2s steps(100) forwards, breathe 3s ease-in-out 2s infinite;
 }
